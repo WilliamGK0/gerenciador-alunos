@@ -148,13 +148,18 @@ function Ordenar() {
         }
     }
 
-    if (alunosComMedia.length === 0) { alert("Nenhum aluno tem notas registradas."); return; }
+    if (alunosComMedia.length === 0) {
+        alert("Nenhum aluno tem notas registradas.");
+        return;
+    }
 
     alunosComMedia.sort((a, b) => b.media - a.media);
 
     let lista = "Alunos ordenados por média (decrescente):\n";
-    for (const [i, aluno] of alunosComMedia.entries()) {
-        lista += `${i + 1}) ${aluno.nome} | Média: ${aluno.media.toFixed(2)}\n`;
+    let i = 1; // contador manual
+    for (const aluno of alunosComMedia) {
+        lista += `${i}) ${aluno.nome} | Média: ${aluno.media.toFixed(2)}\n`;
+        i++;
     }
 
     alert(lista);
